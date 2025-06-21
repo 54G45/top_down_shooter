@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7gifh7hjg6p6"]
+
+[ext_resource type="PackedScene" uid="uid://byml2j0gml5t7" path="res://entities/player.tscn" id="1_wl4x5"]
+[ext_resource type="PackedScene" uid="uid://b4htuu1ecl7is" path="res://prefabs/bullet.tscn" id="2_olpmc"]
+[ext_resource type="PackedScene" uid="uid://dj6w2f380b35p" path="res://entities/enemy.tscn" id="3_olpmc"]
+
+[node name="arena" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_wl4x5")]
+position = Vector2(950, 519)
+bullet_scene = ExtResource("2_olpmc")
+
+[node name="enemy" parent="." instance=ExtResource("3_olpmc")]
+position = Vector2(129, 105)

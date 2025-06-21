@@ -14,6 +14,10 @@ config/name="top_donw_shooter"
 run/main_scene="uid://b7gifh7hjg6p6"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
+[autoload]
+
+Global="*res://singleton/global.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -21,6 +25,10 @@ window/size/viewport_height=1080
 window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+enemies=""
 
 [input]
 

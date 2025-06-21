@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4htuu1ecl7is"]
 
-[ext_resource type="Script" uid="uid://ducl3firp2eym" path="res://roteiro/bullet.gd" id="1_lv25w"]
-[ext_resource type="Texture2D" uid="uid://b3h7bw8jtiwdx" path="res://ativos/quadrado-64.png" id="2_7rc6x"]
+[ext_resource type="Script" uid="uid://ducl3firp2eym" path="res://script/bullet.gd" id="1_lv25w"]
+[ext_resource type="Texture2D" uid="uid://b3h7bw8jtiwdx" path="res://asstes/square.png" id="2_7rc6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44iiu"]
 
@@ -17,4 +17,5 @@ shape = SubResource("RectangleShape2D_44iiu")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
