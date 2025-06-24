@@ -1,16 +1,18 @@
 extends CharacterBody2D
 
-@onready var square:  Sprite2D = $square
+@onready var square :  Sprite2D = $square
 @export var move_speed : float = 100.0
 @export var health : int = 3
 
 var direction : Vector2 = Vector2.ZERO
 var player = null
+var original_color : = Color.WHITE
 var knockback_velocity: Vector2 = Vector2.ZERO
 var knockback_decay: float = 800.0
 
 func _ready() -> void:
 	player = Global.player
+	original_color =  square.modulate
 
 func _physics_process(delta: float) -> void:
 	if knockback_velocity.length() > 1:
@@ -21,17 +23,21 @@ func _physics_process(delta: float) -> void:
 		if player:
 			direction = global_position.direction_to(player.global_position)
 			velocity = direction * move_speed
-	
-	
 	move_and_slide()
 
 func apply_knockback(force: Vector2):
 	knockback_velocity = force
 
+func hit_flash():
+	square.modulate = Color(5.0, 5.0, 5.0)
+	await get_tree().create_timer(0.1).timeout
+	square.modulate = original_color
+
 func take_damage(amount: int, _source_position: Vector2):
 	health -= amount
 	var knockback_dir = (global_position - _source_position).normalized()
-	apply_knockback(knockback_dir * 600)
+	apply_knockback(knockback_dir * 300)
+	hit_flash()
 	if health <= 0:
 		queue_free()
 	print("enemy health is: " + str(health))

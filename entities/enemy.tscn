@@ -7,10 +7,13 @@
 size = Vector2(62, 62)
 
 [node name="enemy" type="CharacterBody2D" groups=["enemies"]]
+modulate = Color(0.971443, 0.22714, 0.531268, 1)
 script = ExtResource("1_pqhw6")
 
 [node name="square" type="Sprite2D" parent="."]
+modulate = Color(0.971443, 0.22714, 0.531268, 1)
 texture = ExtResource("2_b4nis")
 
 [node name="collision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_4gyqm")
